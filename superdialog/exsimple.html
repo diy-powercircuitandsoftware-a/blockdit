@@ -1,1 +1,102 @@
- 
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="SuperDialog.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var sd = new SuperDialog();
+                document.getElementById("Alert").addEventListener("click", function () {
+                    sd.Alert("Alert");
+                });
+                document.getElementById("Advertisement").addEventListener("click", function () {
+                    sd.Advertisement("Advertisement", 5);
+                });
+                document.getElementById("ChangePassword").addEventListener("click", function () {
+                    var pw = sd.ChangePassword(function (json) {
+                        document.getElementById("Output").innerHTML = JSON.stringify(json);
+                        pw.Close();
+                    });
+                });
+                document.getElementById("Confirm").addEventListener("click", function () {
+                    document.getElementById("Output").innerHTML = "";
+                    sd.Confirm("Confirm", function () {
+                        document.getElementById("Output").innerHTML = "Confirm";
+                    });
+                });
+                //
+                document.getElementById("Contact").addEventListener("click", function () {
+                    var c = sd.Contact(function (json) {
+                        document.getElementById("Output").innerHTML = JSON.stringify(json);
+                        c.Close();
+                    });
+                });
+                document.getElementById("License").addEventListener("click", function () {
+                    sd.License("License");
+                });
+                document.getElementById("MediaPlayer").addEventListener("click", function () {
+                    sd.MediaPlayer("https://www.w3schools.com/html/mov_bbb.mp4");
+                });
+                document.getElementById("Payment").addEventListener("click", function () {
+                    var p = sd.Payment(function (json) {
+                        document.getElementById("Output").innerHTML = JSON.stringify(json);
+                        p.Close();
+                    });
+                });
+                document.getElementById("Prompt").addEventListener("click", function () {
+                    document.getElementById("Output").innerHTML = "";
+                    var s = sd.Prompt("Prompt", function (v) {
+                        document.getElementById("Output").innerHTML = v;
+                        s.Close();
+                    });
+                });
+                document.getElementById("Register").addEventListener("click", function () {
+                    var r = sd.Register(function (json) {
+                        document.getElementById("Output").innerHTML = JSON.stringify(json);
+                        r.Close();
+                    });
+                });
+                document.getElementById("SaveBeforeExit").addEventListener("click", function () {
+                    document.getElementById("Output").innerHTML = "";
+                    var s = sd.SaveBeforeExit(function (v) {
+                        document.getElementById("Output").innerHTML = v;
+                        s.Close();
+                    });
+                });
+                 document.getElementById("Import").addEventListener("click", function () {
+                     sd.Import("#Output");
+                });
+
+            });
+        </script>
+    </head>
+    <body style="background-color: cornsilk;">
+        <div>
+            <button id="Alert">Alert</button>
+            <button id="Advertisement">Advertisement</button>
+            <button id="ChangePassword">Change Password</button>
+            <button id="Confirm">Confirm</button>
+            <button id="Contact">Contact</button>
+
+            <button id="License">License</button>
+            <button id="MediaPlayer">Media Player</button>
+            <button id="Payment">Payment</button>
+            <button id="Prompt">Prompt</button>
+            <button id="Register">Register</button>
+            <button id="SaveBeforeExit">Save Before Exit</button>
+	    <button id="Import">Import</button>
+        </div>
+
+        <div>
+            <span style="display: block;">Output</span>
+            <textarea id="Output" style="height: 300px;width: 100%;"></textarea>
+        </div>
+    </body>
+</html>
