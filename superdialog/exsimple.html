@@ -71,7 +71,7 @@ and open the template in the editor.
                     });
                 });
                  document.getElementById("Import").addEventListener("click", function () {
-                     sd.Import("#Output");
+                     sd.Import("Import","#DIVImport");
                 });
 
             });
@@ -93,10 +93,12 @@ and open the template in the editor.
             <button id="SaveBeforeExit">Save Before Exit</button>
 	    <button id="Import">Import</button>
         </div>
-
         <div>
             <span style="display: block;">Output</span>
             <textarea id="Output" style="height: 300px;width: 100%;"></textarea>
         </div>
+	<div id="DIVImport">
+	    <span>DIV    Import</span>
+	</div>
     </body>
 </html>
