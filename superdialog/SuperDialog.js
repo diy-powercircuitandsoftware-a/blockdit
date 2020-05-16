@@ -144,7 +144,7 @@ class SuperDialog {
             }});
         sd.Add = function (k, v) {
             var opt = this.dd.appendChild(document.createElement('option'));
-            opt.value = v;
+            opt.value = k;
             opt.innerHTML = v;
             return this;
         };
